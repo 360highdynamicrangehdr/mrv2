@@ -158,7 +158,7 @@ if [[ $KERNEL == *Msys* ]]; then
     . $PWD/etc/windows_prepare.sh
 fi
 
-if [[ $0 == *runme.sh* ]]; then
+if [[ $0 == *runme.sh* || $0 == *runme_quick.sh* ]]; then
     #
     # First run, create the standard directories.
     #

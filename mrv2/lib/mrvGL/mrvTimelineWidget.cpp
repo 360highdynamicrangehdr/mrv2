@@ -151,16 +151,14 @@ namespace mrv
         p.clipboard = Clipboard::create(context);
         p.eventLoop =
             ui::EventLoop::create(p.style, p.iconLibrary, p.clipboard, context);
-        p.eventLoop->setCapture(
-            [this](const math::Box2i& value)
-            {
-                make_current();
-                auto out = _capture(value);
-                return out;
-            });
+
         p.timelineWidget =
             timelineui::TimelineWidget::create(timeUnitsModel, context);
-        // p.timelineWidget->setScrollBarsVisible(false);
+        p.timelineWidget->setEditable(true);
+        p.timelineWidget->setFrameView(true);
+        p.timelineWidget->setScrollBarsVisible(false);
+        p.timelineWidget->setStopOnScrub(false);
+
         p.eventLoop->addWidget(p.timelineWidget);
         const float devicePixelRatio = pixels_per_unit();
         p.eventLoop->setDisplayScale(devicePixelRatio);
@@ -1194,31 +1192,6 @@ namespace mrv
         const float devicePixelRatio = self->pixels_per_unit();
         return devicePixelRatio > 0.F ? (value / devicePixelRatio)
                                       : math::Vector2i();
-    }
-
-    std::shared_ptr<gl::OffscreenBuffer>
-    TimelineWidget::_capture(const math::Box2i& value)
-    {
-        TLRENDER_P();
-        std::shared_ptr<gl::OffscreenBuffer> out;
-        try
-        {
-            gl::OffscreenBufferOptions offscreenBufferOptions;
-            offscreenBufferOptions.colorType = image::PixelType::RGBA_U8;
-            out = gl::OffscreenBuffer::create(
-                value.getSize(), offscreenBufferOptions);
-            glBindFramebuffer(GL_READ_FRAMEBUFFER, p.buffer->getID());
-            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, out->getID());
-            glBlitFramebuffer(
-                value.min.x, p.buffer->getHeight() - 1 - value.min.y,
-                value.max.x, p.buffer->getHeight() - 1 - value.max.y, 0, 0,
-                value.w(), value.h(), GL_COLOR_BUFFER_BIT, GL_LINEAR);
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        }
-        catch (const std::exception&)
-        {
-        }
-        return out;
     }
 
     //! Routine to turn mrv2's hotkeys into Darby's shortcuts
