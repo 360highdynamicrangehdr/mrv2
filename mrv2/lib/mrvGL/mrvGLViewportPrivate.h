@@ -11,7 +11,7 @@
 #include <tlTimeline/GLRender.h>
 #include <tlGL/Shader.h>
 
-#include <tlGlad/gl.h>
+#include <glad/gl.h>
 
 #include "mrvGL/mrvGLLines.h"
 #include "mrvGL/mrvGLViewport.h"

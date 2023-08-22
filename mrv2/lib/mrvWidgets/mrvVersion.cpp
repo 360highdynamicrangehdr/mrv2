@@ -43,7 +43,7 @@
 #include <algorithm>
 
 #include <expat.h>
-#include <tlGlad/gl.h> // defines glGetString and GL_VERSION
+#include <glad/gl.h> // defines glGetString and GL_VERSION
 #include <Imath/ImathConfig.h>
 #include <hpdf_version.h>
 #include <jconfig.h>

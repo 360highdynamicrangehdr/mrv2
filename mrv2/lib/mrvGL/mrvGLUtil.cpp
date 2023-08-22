@@ -6,7 +6,7 @@
 
 #include <tlCore/StringFormat.h>
 
-#include <tlGlad/gl.h>
+#include <glad/gl.h>
 
 #include <tlGL/Shader.h>
 #include <tlGL/Mesh.h>

@@ -7,7 +7,7 @@
 
 #include <hpdf.h>
 
-#include <tlGlad/gl.h>
+#include <glad/gl.h>
 
 #include "mrvDraw/Annotation.h"
 

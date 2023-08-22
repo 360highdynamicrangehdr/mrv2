@@ -16,7 +16,7 @@
 #include <tlGL/Util.h>
 #include <tlTimeline/GLRender.h>
 
-#include <tlGlad/gl.h>
+#include <glad/gl.h>
 
 #include "mrvCore/mrvUtil.h"
 

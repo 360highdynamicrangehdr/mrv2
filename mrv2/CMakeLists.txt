@@ -122,9 +122,10 @@ set( MRV_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/lib
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${mrv2_FLTK_INCLUDE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/glad
     ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/deps
     ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/deps
+    ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/deps/glad_GL_4_1/include
     ${CMAKE_CURRENT_SOURCE_DIR}/../tlRender/deps/tlGlad_GL_4_1/include
     ${Intl_INCLUDE_DIRS}
 )

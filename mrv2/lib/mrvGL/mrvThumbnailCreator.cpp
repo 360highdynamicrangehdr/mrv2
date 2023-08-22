@@ -2,9 +2,9 @@
 // mrv2
 // Copyright Contributors to the mrv2 Project. All rights reserved.
 
-#include <mrvGL/mrvThumbnailCreator.h>
+#include "mrvGL/mrvThumbnailCreator.h"
 
-#include <tlGlad/gl.h>
+#include <glad/gl.h>
 
 #include <tlGL/Mesh.h>
 #include <tlGL/OffscreenBuffer.h>

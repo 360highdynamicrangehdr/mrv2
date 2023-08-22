@@ -143,6 +143,8 @@ namespace mrv
         int _fromUI(int) const;
         math::Vector2i _fromUI(const math::Vector2i&) const;
 
+        std::shared_ptr<gl::OffscreenBuffer> _capture(const math::Box2i&);
+
         unsigned _changeKey(unsigned key);
         void _drawAnnotationMarks() const noexcept;
 
@@ -157,8 +159,6 @@ namespace mrv
         int _requestThumbnail(bool fetch = true);
         void _deleteThumbnails();
         void _thumbnailsUpdate();
-
-        std::shared_ptr<gl::OffscreenBuffer> _capture(const math::Box2i& value);
 
         TLRENDER_PRIVATE();
     };
